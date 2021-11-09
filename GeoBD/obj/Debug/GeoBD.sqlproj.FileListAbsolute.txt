@@ -1,0 +1,10 @@
+C:\Users\camer\source\repos\GeoBD\bin\Debug\GeoBD.dacpac
+C:\Users\camer\source\repos\GeoBD\bin\Debug\GeoBD.dll
+C:\Users\camer\source\repos\GeoBD\bin\Debug\GeoBD.pdb
+C:\Users\camer\source\repos\GeoBD\obj\Debug\GeoBD.sqlprojAssemblyReference.cache
+C:\Users\camer\source\repos\GeoBD\obj\Debug\Model.xml
+C:\Users\camer\source\repos\GeoBD\obj\Debug\refactor.xml
+C:\Users\camer\source\repos\GeoBD\obj\Debug\postdeploy.sql
+C:\Users\camer\source\repos\GeoBD\obj\Debug\predeploy.sql
+C:\Users\camer\source\repos\GeoBD\obj\Debug\GeoBD.dll
+C:\Users\camer\source\repos\GeoBD\obj\Debug\GeoBD.pdb

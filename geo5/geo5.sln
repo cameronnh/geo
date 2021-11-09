@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geo5", "geo5.csproj", "{508B80E7-F579-45D1-8DCE-74273914D2AE}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GeoDB", "..\GeoBD\GeoDB.sqlproj", "{C7D77526-0E54-4CD0-B83B-1DE1F7FDBE88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "..\DataLibrary\DataLibrary.csproj", "{F90AAA4A-9300-4F85-B680-C30D02B7F51B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{508B80E7-F579-45D1-8DCE-74273914D2AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508B80E7-F579-45D1-8DCE-74273914D2AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508B80E7-F579-45D1-8DCE-74273914D2AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508B80E7-F579-45D1-8DCE-74273914D2AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7D77526-0E54-4CD0-B83B-1DE1F7FDBE88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7D77526-0E54-4CD0-B83B-1DE1F7FDBE88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7D77526-0E54-4CD0-B83B-1DE1F7FDBE88}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C7D77526-0E54-4CD0-B83B-1DE1F7FDBE88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7D77526-0E54-4CD0-B83B-1DE1F7FDBE88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7D77526-0E54-4CD0-B83B-1DE1F7FDBE88}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F90AAA4A-9300-4F85-B680-C30D02B7F51B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90AAA4A-9300-4F85-B680-C30D02B7F51B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90AAA4A-9300-4F85-B680-C30D02B7F51B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90AAA4A-9300-4F85-B680-C30D02B7F51B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF0FD5C6-486F-4A38-8C8B-AB6D38B5A59E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,120 @@
+﻿@model geo5.Models.result
+@{
+    ViewBag.Title = "Home Page";
+}
+    <main>
+        <ol class="breadcrumb mb-4">
+        </ol>
+
+        <div class="container-fluid px-4">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-globe me-1"></i>
+                            Result
+                        </div>
+                        <div id="map2" style="height:400px"></div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-list me-1"></i>
+                            Rounds
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+
+                                <li class="list-group-item">Round 1 = @Model.distance1 kilometers       = @Model.points1 Points</li>
+                                @if (Model.distance2 != 0)
+                                {
+                                    <li class="list-group-item">Round 2 = @Model.distance2 kilometers       = @Model.points2 Points</li>
+                                }
+                                @if (Model.distance3 != 0)
+                                {
+                                    <li class="list-group-item">Round 3 = @Model.distance3 kilometers       = @Model.points3 Points</li>
+                                }
+                                @if (Model.distance4 != 0)
+                                {
+                                    <li class="list-group-item">Round 4 = @Model.distance4 kilometers       = @Model.points4 Points</li>
+                                }
+                                @if (Model.distance5 != 0)
+                                {
+                                    <li class="list-group-item">Round 5 = @Model.distance5 kilometers       = @Model.points5 Points</li>
+                                }
+                            </ul>
+                            <ol class="breadcrumb mb-4"></ol>
+                            @if (Model.avgdistance != 0)
+                            {
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item active">Average distance for all rounds = @Model.avgdistance kilometers</li>
+                                </ol>
+                            }
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Total distance this round = @Model.currentdistance kilometers</li>
+                            </ol>
+
+                            <ol class="breadcrumb mb-4" style="margin-top:40px">
+                                <li class="breadcrumb-item active">Points = @Model.points / 2000</li>
+                            </ol>
+
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Model.percent" aria-valuemin="0" aria-valuemax="100" style="width: @Model.percent%"></div>
+                            </div>
+
+                            <ol class="breadcrumb mb-4" style="margin-top:20px">
+                                @if (Model.gametype == "global")
+                                {
+                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("GlobalGetNextRound", "Home")'">Next Round</button>
+                                }
+                                @if (Model.gametype == "us")
+                                {
+                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("USGetNextRound", "Home")'">Next Round</button>
+                                }
+                                @if (Model.gametype == "famous")
+                                {
+                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("FamousGetNextRound", "Home")'">Next Round</button>
+                                }
+                            </ol>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </main>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function initialize() {
+            var map2 = new google.maps.Map(document.getElementById("map2"), {
+                zoom: 2,
+                center: { lat: 42.995640, lng: -71.454788 },
+                streetViewControl: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var markerCorrect = new google.maps.Marker({
+                map: map2,
+                position: { lat: @Model.correctlat, lng: @Model.correctlng},
+                label: "C"
+            });
+
+            var markerSubmitted = new google.maps.Marker({
+                map: map2,
+                position: { lat: @Model.submittedlat, lng: @Model.submittedlng},
+                label: "S"
+            });
+
+            var line = new google.maps.Polyline({
+                path: [{ lat: @Model.correctlat, lng: @Model.correctlng},{ lat: @Model.submittedlat, lng: @Model.submittedlng}],
+                geodesic: false,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 1
+            });
+            line.setMap(map2);
+        };
+    </script>
+}

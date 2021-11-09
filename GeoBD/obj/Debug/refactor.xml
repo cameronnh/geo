@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0">
+  <Operation Name="Rename Refactor" Key="1b1a5a31-02b9-4540-bf00-ea5b918fe2c2" ChangeDateTime="09/21/2021 00:24:10" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="userID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e28cce02-2979-47bb-90ce-d3d651656fe8" ChangeDateTime="09/21/2021 00:25:14" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[user]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="username" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="02d8dc9f-d74a-4b9c-a536-fc0304ae0197" ChangeDateTime="09/21/2021 01:09:22" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[averageDistance]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="closestGame" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9f4ed8b3-5bdc-4332-a238-2657553a4878" ChangeDateTime="09/28/2021 18:36:55" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Games].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Games]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="gameId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f9ef6c34-1777-499b-9f9c-13bf7e353037" ChangeDateTime="09/28/2021 18:37:49" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Games].[guessedScore]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Games]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="guessedScore1" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="96c30209-9b0f-4035-93cc-5e3247c0280f" ChangeDateTime="11/09/2021 05:12:25" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[closestGame]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="closestGameGlobal" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a22255e0-d22d-4758-adc7-ab13f61fa32b" ChangeDateTime="11/09/2021 05:12:34" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[closestGameGlobal]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="cgGlobal" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b49abcd2-4e6f-4ae2-bf41-e122d716142f" ChangeDateTime="11/09/2021 05:12:41" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[gameTableFID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="cgWorld" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f5d14ac6-9aa1-4c89-910d-e05610eaf04a" ChangeDateTime="11/09/2021 05:16:37" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[cgGlobal]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="bgGlobal" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="405fadd2-fce2-432d-9fe5-764b0754da9e" ChangeDateTime="11/09/2021 05:16:41" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[cgWorld]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="bgWorld" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f5b90204-5706-41aa-8b34-e9d9fb191db0" ChangeDateTime="11/09/2021 05:16:48" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[user].[cgFamous]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="bgFamous" />
+  </Operation>
+</Operations>

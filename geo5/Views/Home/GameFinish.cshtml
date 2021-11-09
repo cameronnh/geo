@@ -1,0 +1,59 @@
+﻿@model geo5.Models.result
+
+    <main>
+        <ol class="breadcrumb mb-4">
+        </ol>
+
+        <div class="container-fluid px-4">
+            <div class="row">               
+                <div class="col-xl-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-list me-1"></i>
+                            Game Results
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+
+                                <li class="list-group-item">Round 1 = @Model.distance1 kilometers       = @Model.points1 Points</li>
+                                <li class="list-group-item">Round 2 = @Model.distance2 kilometers       = @Model.points2 Points</li>
+                                <li class="list-group-item">Round 3 = @Model.distance3 kilometers       = @Model.points3 Points</li>
+                                <li class="list-group-item">Round 4 = @Model.distance4 kilometers       = @Model.points4 Points</li>
+                                <li class="list-group-item">Round 5 = @Model.distance5 kilometers       = @Model.points5 Points</li>
+
+                            </ul>
+                            <ol class="breadcrumb mb-4"></ol>
+
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Average distance for all rounds = @Model.avgdistance kilometers</li>
+                            </ol>
+
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Total correct (Under 1km) = @Model.numCorrect</li>
+                            </ol>
+
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Total points = @Model.points</li>
+                            </ol>
+
+                            <ol style="margin-top:15px" class="breadcrumb mb-4">
+                                <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("BackToMain", "Home")'">Finish</button>
+                            </ol>
+                            @if (Session["Id"] == null)
+                            {
+                                <ol style="margin-top:7px" class="breadcrumb mb-4">
+                            <button type="button" class="btn btn-outline-info" value="Login" onclick="location.href='@Url.Action("Login", "Home")'">Login</button>
+                                </ol>
+
+                                <ol style="margin-top:7px" class="breadcrumb mb-4">
+                            <button type="button" class="btn btn-outline-info" value="Sign Up" onclick="location.href='@Url.Action("Register", "Home")'">Sign Up</button>
+                                </ol>
+                                   
+                            }
+
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </main>
