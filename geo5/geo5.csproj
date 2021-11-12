@@ -139,6 +139,9 @@
     <Content Include="Content\datatables-simple-demo.js" />
     <Content Include="Content\GoogleMaps.js" />
     <Content Include="Content\GoogleMapsStyle.css" />
+    <Content Include="Content\Images\famous.jpg" />
+    <Content Include="Content\Images\us.jpg" />
+    <Content Include="Content\Images\world.jpg" />
     <Content Include="Content\jquery-ui.min.js" />
     <Content Include="Content\jquery.min.js" />
     <Content Include="Content\scripts.js" />
@@ -158,7 +161,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -174,9 +176,14 @@
     <Content Include="Views\Home\GlobalLeaderboard.cshtml" />
     <Content Include="Views\Home\FamousGuess.cshtml" />
     <Content Include="Views\Home\ShowResults.cshtml" />
-    <Content Include="Views\Home\GlobalGuess.cshtml" />
+    <Content Include="Views\Home\WorldGuess.cshtml" />
     <Content Include="Views\Home\USGuess.cshtml" />
     <Content Include="Views\Home\GameFinish.cshtml" />
+    <Content Include="Views\Home\World.cshtml" />
+    <Content Include="Views\Home\US.cshtml" />
+    <Content Include="Views\Home\Famous.cshtml" />
+    <Content Include="Views\Home\FriendsLeaderboard.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">

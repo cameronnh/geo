@@ -15,23 +15,17 @@ namespace geo5.Controllers
         public static place submittedPlace = new place(0, 0 ,"");
         public static result currentGame = new result();
         public static int currentRound;
-
-        public ActionResult Index()
-        {                      
-            return View();
-        }
-
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-
+    
         public ActionResult GlobalLeaderboard()
+        {
+            List<DataLibrary.Models.user> temp = getUsersStats();
+            List<user> userList = new List<user>();
+            userList = temp.ConvertAll(new Converter<DataLibrary.Models.user, user>(data.GetUserData));
+
+            return View(userList);
+        }
+
+        public ActionResult FriendsLeaderboard()
         {
             List<DataLibrary.Models.user> temp = getUsersStats();
             List<user> userList = new List<user>();
@@ -43,6 +37,11 @@ namespace geo5.Controllers
         public ActionResult Settings()
         {
             return View();//NOT MADE
+        }
+
+        public ActionResult About()
+        {
+            return View();
         }
 
         public ActionResult ShowResults()
@@ -110,31 +109,7 @@ namespace geo5.Controllers
         //stats save
         public ActionResult BackToMain()
         {
-            if(currentGame.gametype == "global")
-            {
-                if(currentUser.bgGlobal < currentGame.points)
-                {
-                    SetbgGlobal(currentUser.userId, currentGame.points);
-                }
-            }
-
-            if (currentGame.gametype == "us")
-            {
-                if (currentUser.bgWorld < currentGame.points)//need to change world to us in database im dumb
-                {
-                    SetbgWorld(currentUser.userId, currentGame.points);
-                }
-            }
-
-            if (currentGame.gametype == "famous")
-            {
-                if (currentUser.bgFamous < currentGame.points)
-                {
-                    SetbgWorld(currentUser.userId, currentGame.points);
-                }
-            }
-
-            if(currentGame.numCorrect != 0)
+            if (currentGame.numCorrect != 0)
             {
                 int temp = Convert.ToInt32(currentUser.numCorrect);
                 temp = temp + (Convert.ToInt32(currentGame.numCorrect));
@@ -142,11 +117,41 @@ namespace geo5.Controllers
                 SetNewCorrect(currentUser.userId, temp);
             }
 
-            return RedirectToAction("Index", "Home");
+            if (currentGame.gametype == "global")
+            {
+                if(currentUser.bgGlobal < currentGame.points)
+                {
+                    SetbgGlobal(currentUser.userId, currentGame.points);
+                }
+                return RedirectToAction("World", "Home");
+            }
+            else if (currentGame.gametype == "us")
+            {
+                if (currentUser.bgWorld < currentGame.points)//need to change world to us in database im dumb
+                {
+                    SetbgWorld(currentUser.userId, currentGame.points);
+                }
+                return RedirectToAction("US", "Home");
+            }
+            else if(currentGame.gametype == "famous")
+            {
+                if (currentUser.bgFamous < currentGame.points)
+                {
+                    SetbgWorld(currentUser.userId, currentGame.points);
+                }
+                return RedirectToAction("Famous", "Home");
+            }
+            
+            return RedirectToAction("World", "Home");
         }
 
-        //GLOBAL//
-        public ActionResult GlobalGuess()
+        //WORLD//
+        public ActionResult World()
+        {
+            return View();
+        }
+
+        public ActionResult WorldGuess()
         {
             place temp = new place(0, 0, "");
             temp = GetFamousPlace(temp);
@@ -155,23 +160,23 @@ namespace geo5.Controllers
             return View(temp);
         }
 
-        public ActionResult GlobalGetGame()
+        public ActionResult WorldGetGame()
         {
             currentGame = new result();
             currentGame.numCorrect = 0;
             currentRound = 1;           
             currentGame.gametype = "global";
-            return RedirectToAction("GlobalGuess", "Home");
+            return RedirectToAction("WorldGuess", "Home");
         }
 
-        public ActionResult GlobalGetNextRound()
+        public ActionResult WorldGetNextRound()
         {
             if(currentRound == 5)
             {
                 return RedirectToAction("GameFinish", "Home");
             }
             currentRound++;
-            return RedirectToAction("GlobalGuess", "Home");
+            return RedirectToAction("WorldGuess", "Home");
         }
 
         public ActionResult PostSubmissionGlobal(double slat, double slng, double clat, double clng)
@@ -189,6 +194,11 @@ namespace geo5.Controllers
         }
 
         //US//
+        public ActionResult US()
+        {
+            return View();
+        }
+
         public ActionResult USGuess()
         {
             place temp = new place(0, 0, "");
@@ -232,6 +242,11 @@ namespace geo5.Controllers
         }
 
         //FAMOUS//
+        public ActionResult Famous()
+        {
+            return View();
+        }
+
         public ActionResult FamousGuess()
         {
             place temp = new place(0, 0, "");
@@ -272,6 +287,12 @@ namespace geo5.Controllers
             return RedirectToAction("ShowResults", "Home");
         }
 
+        //ACCOUNT
+        public ActionResult Register()
+        {
+            return View();
+        }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(userRegister model)
@@ -294,6 +315,11 @@ namespace geo5.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         [AllowAnonymous]
         [HttpPost]
         public ActionResult Login(user model)
@@ -311,7 +337,7 @@ namespace geo5.Controllers
                 currentUser = user;//sets login            
                 //return this.View(new HomeViewModel { Name = user.username });
                 //return RedirectToAction()
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("World", "Home");
             }
             else
             {
@@ -325,6 +351,7 @@ namespace geo5.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+        //MATH
         private double rad2deg(double rad)
         {
             return (rad / Math.PI * 180.0);

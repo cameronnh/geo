@@ -24,3 +24,11 @@ C:\Users\Cameron\Desktop\geo\geo\DataLibrary\bin\Debug\DataLibrary.pdb
 C:\Users\Cameron\Desktop\geo\geo\DataLibrary\bin\Debug\Dapper.dll
 C:\Users\Cameron\Desktop\geo\geo\DataLibrary\bin\Debug\Dapper.xml
 C:\Users\Cameron\Desktop\geo\geo\DataLibrary\obj\Debug\DataLibrary.csproj.CopyComplete
+C:\Users\camer\Documents\important\GeoCap\geo\DataLibrary\bin\Debug\DataLibrary.dll
+C:\Users\camer\Documents\important\GeoCap\geo\DataLibrary\bin\Debug\DataLibrary.pdb
+C:\Users\camer\Documents\important\GeoCap\geo\DataLibrary\bin\Debug\Dapper.dll
+C:\Users\camer\Documents\important\GeoCap\geo\DataLibrary\bin\Debug\Dapper.xml
+C:\Users\camer\Documents\important\GeoCap\geo\DataLibrary\obj\Debug\DataLibrary.csprojAssemblyReference.cache
+C:\Users\camer\Documents\important\GeoCap\geo\DataLibrary\obj\Debug\DataLibrary.csproj.CopyComplete
+C:\Users\camer\Documents\important\GeoCap\geo\DataLibrary\obj\Debug\DataLibrary.dll
+C:\Users\camer\Documents\important\GeoCap\geo\DataLibrary\obj\Debug\DataLibrary.pdb

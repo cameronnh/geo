@@ -1,0 +1,55 @@
+﻿@model List<geo5.Models.user>
+
+<main>
+    <div class="container-fluid px-4" style="margin-top:20px">
+        @*<h1 class="mt-4">Global Leaderboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>*@
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-users me-1"></i>
+                Friends Leaderboard
+            </div>
+            <div class="card-body">
+                <table style="border-color:transparent" id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Best Game World</th>
+                            <th>Best Game US</th>
+                            <th>Best Game Famous</th>
+                            <th>Total Correct Guesses</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Username</th>
+                            <th>Best Game World</th>
+                            <th>Best Game US</th>
+                            <th>Best Game Famous</th>
+                            <th>Total Correct Guesses</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                       
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.username</td>
+                                    <td>@item.bgGlobal</td>
+                                    <td>@item.bgWorld</td>
+                                    <td>@item.bgFamous</td>
+                                    <td>@item.numCorrect</td>
+                                    </tr>
+                            }
+
+                                          
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

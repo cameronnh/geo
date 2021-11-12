@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading" style="margin-top:80px">World</h1>
+            <p class="lead text-muted">Guess locations from all over the world!</p>
+            <p>
+                <a href="@Url.Action("WorldGetGame", "Home")" class="btn btn-primary my-2">Play</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="~/Content/Images/world.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Embark on a journey that takes you all over the world. From the most desolate roads in Australia to the busy, bustling freeways of Los Angeles.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a type="button" href="@Url.Action("World", "Home")" class="btn btn-sm btn-outline-secondary">Play World</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="~/Content/Images/us.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Travel all across the United States and other surrounding areas. See many different locations from small towns and corn fields to overpopulated cities.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a type="button" href="@Url.Action("US", "Home")" class="btn btn-sm btn-outline-secondary">Play United States</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="~/Content/Images/famous.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Spectacular natural wonders and astonishing man-made structures. The world is filled with wonders and great landmarks, How many can you recognize?</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a type="button" href="@Url.Action("Famous", "Home")" class="btn btn-sm btn-outline-secondary">Play Famous</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

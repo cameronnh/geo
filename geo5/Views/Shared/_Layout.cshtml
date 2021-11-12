@@ -37,7 +37,7 @@
                     @if (Session["Id"] == null)
                     {
                         <li><a class="dropdown-item" href="@Url.Action("Login", "Home")">Login</a></li>
-                        <li><a class="dropdown-item" href="@Url.Action("Register", "Home")">Register</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Register", "Home")">Sign Up</a></li>
                     }
                     else
                     {
@@ -54,15 +54,15 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Games</div>
-                        <a class="nav-link" href="@Url.Action("GlobalGetGame", "Home")">
+                        <a class="nav-link" href="@Url.Action("World", "Home")">
                             <div class="sb-nav-link-icon"><i class="fas fa-globe"></i></div>
                             World
                         </a>
-                        <a class="nav-link" href="@Url.Action("USGetGame", "Home")">
+                        <a class="nav-link" href="@Url.Action("US", "Home")">
                             <div class="sb-nav-link-icon"><i class="fas fa-flag"></i></div>
                             United States
                         </a>
-                        <a class="nav-link" href="@Url.Action("FamousGetGame", "Home")">
+                        <a class="nav-link" href="@Url.Action("Famous", "Home")">
                             <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
                             Famous Places
                         </a>
@@ -71,7 +71,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-trophy"></i></div>
                             Global
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="@Url.Action("FriendsLeaderboard", "Home")">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Friends
                         </a>
@@ -94,12 +94,12 @@
                         else
                         {
 
-                            <a class="nav-link" href="@Url.Action("Login", "Home")">
+                            <a class="nav-link" href="@Url.Action("Settings", "Home")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
                                 Settings
                             </a>
                             <a class="nav-link" href="@Url.Action("LogOut", "Home")">
-                                <div class="sb-nav-link-icon"><i class="fas fa-sign-out"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
                                 Sign Out
                             </a>
                             <a class="nav-link" href="@Url.Action("About", "Home")">

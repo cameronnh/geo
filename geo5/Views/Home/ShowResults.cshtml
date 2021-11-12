@@ -66,15 +66,15 @@
                             <ol class="breadcrumb mb-4" style="margin-top:20px">
                                 @if (Model.gametype == "global")
                                 {
-                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("GlobalGetNextRound", "Home")'">Next Round</button>
+                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("GlobalGetNextRound", "Home")'">Next</button>
                                 }
                                 @if (Model.gametype == "us")
                                 {
-                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("USGetNextRound", "Home")'">Next Round</button>
+                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("USGetNextRound", "Home")'">Next</button>
                                 }
                                 @if (Model.gametype == "famous")
                                 {
-                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("FamousGetNextRound", "Home")'">Next Round</button>
+                                    <button type="button" class="btn btn-dark" value="Next" onclick="location.href='@Url.Action("FamousGetNextRound", "Home")'">Next</button>
                                 }
                             </ol>
                         </div>
