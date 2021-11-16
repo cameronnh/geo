@@ -16,5 +16,7 @@ namespace geo5.Models
             lng = ilng;
             country = icoun;
         }
+        public int currentRound { get; set; }
+        public string currentGameType { get; set; }
     }
 }

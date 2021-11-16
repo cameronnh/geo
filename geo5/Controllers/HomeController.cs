@@ -155,7 +155,8 @@ namespace geo5.Controllers
         {
             place temp = new place(0, 0, "");
             temp = GetFamousPlace(temp);
-            currentPlace = temp;//think i dont need to input temp
+            temp.currentRound = currentRound;
+            temp.currentGameType = currentGame.gametype;
 
             return View(temp);
         }
@@ -203,7 +204,8 @@ namespace geo5.Controllers
         {
             place temp = new place(0, 0, "");
             temp = GetFamousPlace(temp);
-            currentPlace = temp;//think i dont need to input temp
+            temp.currentRound = currentRound;
+            temp.currentGameType = currentGame.gametype;
 
             return View(temp);
         }
@@ -251,6 +253,8 @@ namespace geo5.Controllers
         {
             place temp = new place(0, 0, "");
             temp = GetFamousPlace(temp);
+            temp.currentRound = currentRound;
+            temp.currentGameType = currentGame.gametype;
             currentPlace = temp;
 
             return View(temp);

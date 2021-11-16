@@ -3,6 +3,19 @@
 <div id="street-view">
     <div id="floating-panel" style="width:380px; height:110px">
         <div style="margin-top:-10px; height:320px; width:430px" id="map"></div>
+        <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>Round @Model.currentRound/5</button>
+        @if (Model.currentGameType == "global")
+        {
+            <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>World</button>
+        }
+        @if (Model.currentGameType == "us")
+        {
+            <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>US</button>
+        }
+        @if (Model.currentGameType == "famous")
+        {
+            <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>Famous</button>
+        }
         <button id="guessButton" style="margin-top:5px; margin-left:-270px" class="btn btn-light"> Submit </button>
     </div>
 </div>
