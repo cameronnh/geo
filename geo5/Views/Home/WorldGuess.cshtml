@@ -51,24 +51,20 @@
             //https://stackoverflow.com/questions/44476036/generate-random-google-maps-street-view-coordinates-in-javascript
             //generating locatation using street view service
             function TryRandomLocation(callback) {
-                temp = (Math.random() * 5 + 1);
+                //temp = (Math.random() * 3 + 1);
 
-                if (temp == 1) {
-                    tempLat = (Math.random() * (49.351 - 24.751 + 1.51) + 24.751); //bounds of the united states
-                    tempLng = (Math.random() * (124.751 - 66.901 + 1.51) + 66.901) * (-1);
-                }
-                if (temp == 2) {
-                    tempLat = (Math.random() * (49.351 - 24.751 + 1.51) + 24.751); //bounds of the united states
-                    tempLng = (Math.random() * (124.751 - 66.901 + 1.51) + 66.901) * (-1);
-                }
-                if (temp == 3) {
-                    tempLat = (Math.random() * (49.351 - 24.751 + 1.51) + 24.751); //bounds of the united states
-                    tempLng = (Math.random() * (124.751 - 66.901 + 1.51) + 66.901) * (-1);
-                }
-                if (temp == 4) {
-                    tempLat = (Math.random() * (49.351 - 24.751 + 1.51) + 24.751); //bounds of the united states
-                    tempLng = (Math.random() * (124.751 - 66.901 + 1.51) + 66.901) * (-1);
-                }
+                //if (temp == 1) {
+                  //  tempLat = (Math.random() * (49.351 - 24.751) + 24.751); //bounds of the united states
+                 //   tempLng = (Math.random() * (124.751 - 66.901) + 66.901) * (-1);
+                //}
+                //if (temp == 2) {
+                    tempLat = (Math.random() * (63.4701 - 21.751) + 21.751); //bounds of the asia
+                    tempLng = (Math.random() * (.7636 - 129.901) + 129.901);
+                //}
+                //if (temp == 3) {
+                //    tempLat = (Math.random() * (27.3717 - 31.751) + 24.751) * (-1); //bounds of africa
+                //    tempLng = (Math.random() * (14.301 - 51.901) + 66.901) * (-1);
+                //}
                 
                 var svs = new google.maps.StreetViewService();
                 svs.getPanorama({

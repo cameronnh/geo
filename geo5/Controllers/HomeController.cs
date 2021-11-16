@@ -36,7 +36,7 @@ namespace geo5.Controllers
 
         public ActionResult Settings()
         {
-            return View();//NOT MADE
+            return View();
         }
 
         public ActionResult About()
