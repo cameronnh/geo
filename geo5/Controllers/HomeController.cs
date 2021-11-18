@@ -294,6 +294,18 @@ namespace geo5.Controllers
         {
             return View();
         }
+
+        public ActionResult ChangeEmail(userSettings model)
+        {
+            UpdateEmail(currentUser.userId, model.email);
+            return RedirectToAction("Settings", "Home");
+        }
+
+        public ActionResult ChangePassword(userSettings model)
+        {
+            UpdatePassword(currentUser.userId, model.password);
+            return RedirectToAction("Settings", "Home");
+        }
         
         [HttpPost]
         [ValidateAntiForgeryToken]

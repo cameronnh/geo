@@ -86,7 +86,7 @@ namespace DataLibrary.Logic
             return temp;
         }
 
-        public static int ChangeEmail(int userID, string email)
+        public static int UpdateEmail(int userID, string email)
         {
             user data = new user
             {
@@ -99,7 +99,7 @@ namespace DataLibrary.Logic
             return SqlDataAccess.SaveData(sql, data);
         }
 
-        public static int ChangePassword(int userID, string password)
+        public static int UpdatePassword(int userID, string password)
         {
             user data = new user
             {

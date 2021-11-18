@@ -132,6 +132,7 @@
     <Compile Include="Models\result.cs" />
     <Compile Include="Models\user.cs" />
     <Compile Include="Models\userLogin.cs" />
+    <Compile Include="Models\userSettings.cs" />
     <Compile Include="Models\userRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
