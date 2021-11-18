@@ -60,9 +60,7 @@ namespace geo5.Controllers
             double tempPoints = 0;
             tempPoints = currentGame.currentdistance;
             tempPoints = Math.Ceiling(tempPoints);
-
-            
-
+ 
             if(tempPoints > 2000)
             {
                 tempPoints = 0;
