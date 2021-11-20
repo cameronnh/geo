@@ -78,7 +78,7 @@ namespace DataLibrary.Logic
             return SqlDataAccess.SaveData(sql, data);
         }
 
-        public static List<user> getUsersStats()
+        public static List<user> GetUsersStats()
         {
             string sql = @"SELECT username, bgGlobal, bgWorld, bgFamous, numCorrect FROM dbo.[user];";
             List<user> temp = SqlDataAccess.LoadData<user>(sql);

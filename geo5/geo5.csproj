@@ -138,7 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\datatables-simple-demo.js" />
-    <Content Include="Content\GoogleMaps.js" />
     <Content Include="Content\GoogleMapsStyle.css" />
     <Content Include="Content\Images\famous.jpg" />
     <Content Include="Content\Images\us.jpg" />

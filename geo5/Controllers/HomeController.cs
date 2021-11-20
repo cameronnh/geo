@@ -18,7 +18,7 @@ namespace geo5.Controllers
     
         public ActionResult GlobalLeaderboard()
         {
-            List<DataLibrary.Models.user> temp = getUsersStats();
+            List<DataLibrary.Models.user> temp = GetUsersStats();
             List<user> userList = new List<user>();
             userList = temp.ConvertAll(new Converter<DataLibrary.Models.user, user>(data.GetUserData));
 
@@ -27,7 +27,7 @@ namespace geo5.Controllers
 
         public ActionResult FriendsLeaderboard()
         {
-            List<DataLibrary.Models.user> temp = getUsersStats();
+            List<DataLibrary.Models.user> temp = GetUsersStats();
             List<user> userList = new List<user>();
             userList = temp.ConvertAll(new Converter<DataLibrary.Models.user, user>(data.GetUserData));
 
@@ -52,20 +52,23 @@ namespace geo5.Controllers
             currentGame.submittedlng = submittedPlace.lng;
             currentGame.currentround = currentRound;
 
-            currentGame.currentdistance = distance(currentGame.correctlat, currentGame.correctlng, currentGame.submittedlat, currentGame.submittedlng, 'K');
+            currentGame.currentdistance = Distance(currentGame.correctlat, currentGame.correctlng, currentGame.submittedlat, currentGame.submittedlng, 'K');
             if(currentGame.currentdistance < 1) {
                 currentGame.numCorrect++;
             }
 
-            double tempPoints = 0;
+            double tempPoints;
             tempPoints = currentGame.currentdistance;
             tempPoints = Math.Ceiling(tempPoints);
- 
-            if(tempPoints > 2000)
+
+            if (tempPoints > 2000)
             {
                 tempPoints = 0;
             }
-            tempPoints = 2000 - tempPoints;
+            else
+            {
+                tempPoints = 2000 - tempPoints;
+            }       
             
             currentGame.points = Convert.ToInt32(tempPoints);
             currentGame.percent = (tempPoints / 2000)*100;
@@ -110,7 +113,7 @@ namespace geo5.Controllers
             if (currentGame.numCorrect != 0)
             {
                 int temp = Convert.ToInt32(currentUser.numCorrect);
-                temp = temp + (Convert.ToInt32(currentGame.numCorrect));
+                temp += (Convert.ToInt32(currentGame.numCorrect));
 
                 SetNewCorrect(currentUser.userId, temp);
             }
@@ -152,7 +155,6 @@ namespace geo5.Controllers
         public ActionResult WorldGuess()
         {
             place temp = new place(0, 0, "");
-            temp = GetFamousPlace(temp);
             temp.currentRound = currentRound;
             temp.currentGameType = currentGame.gametype;
 
@@ -201,7 +203,6 @@ namespace geo5.Controllers
         public ActionResult USGuess()
         {
             place temp = new place(0, 0, "");
-            temp = GetFamousPlace(temp);
             temp.currentRound = currentRound;
             temp.currentGameType = currentGame.gametype;
 
@@ -250,7 +251,7 @@ namespace geo5.Controllers
         public ActionResult FamousGuess()
         {
             place temp = new place(0, 0, "");
-            temp = GetFamousPlace(temp);
+            temp = GetFamousPlace();
             temp.currentRound = currentRound;
             temp.currentGameType = currentGame.gametype;
             currentPlace = temp;
@@ -366,17 +367,17 @@ namespace geo5.Controllers
         }
 
         //MATH
-        private double rad2deg(double rad)
+        private double Rad2deg(double rad)
         {
             return (rad / Math.PI * 180.0);
         }
 
-        private double deg2rad(double deg)
+        private double Deg2rad(double deg)
         {
             return (deg * Math.PI / 180.0);
         }
 
-        private double distance(double lat1, double lon1, double lat2, double lon2, char unit)
+        private double Distance(double lat1, double lon1, double lat2, double lon2, char unit)
         {
             if ((lat1 == lat2) && (lon1 == lon2))
             {
@@ -385,17 +386,17 @@ namespace geo5.Controllers
             else
             {
                 double theta = lon1 - lon2;
-                double dist = Math.Sin(deg2rad(lat1)) * Math.Sin(deg2rad(lat2)) + Math.Cos(deg2rad(lat1)) * Math.Cos(deg2rad(lat2)) * Math.Cos(deg2rad(theta));
+                double dist = Math.Sin(Deg2rad(lat1)) * Math.Sin(Deg2rad(lat2)) + Math.Cos(Deg2rad(lat1)) * Math.Cos(Deg2rad(lat2)) * Math.Cos(Deg2rad(theta));
                 dist = Math.Acos(dist);
-                dist = rad2deg(dist);
-                dist = dist * 60 * 1.1515;
+                dist = Rad2deg(dist);
+                dist *= 60 * 1.1515;
                 if (unit == 'K')
                 {
-                    dist = dist * 1.609344;
+                    dist *= 1.609344;
                 }
                 else if (unit == 'N')
                 {
-                    dist = dist * 0.8684;
+                    dist *= 0.8684;
                 }
                 dist = Math.Round(dist, 2);
                 return (dist);
@@ -403,7 +404,7 @@ namespace geo5.Controllers
         }
 
         //temp method for testing
-        public Models.place GetFamousPlace(place temp)
+        public Models.place GetFamousPlace()
         {
             List<place> places = new List<place>();
             places.Add(new place(60.171001, 24.939350, "Finland"));
@@ -416,7 +417,7 @@ namespace geo5.Controllers
             places.Add(new place(34.1345088, -118.3218415, "United States"));
             places.Add(new place(40.4331163, 116.5641774, "United States"));
             var random = new Random();
-            temp = places[random.Next(places.Count)];
+            place temp = places[random.Next(places.Count)];
             currentPlace = temp;
 
             return temp;
