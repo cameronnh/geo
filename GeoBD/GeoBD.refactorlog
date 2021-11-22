@@ -77,4 +77,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="bgFamous" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="f6278ac4-6d11-4016-a670-c4aa46ce7198" ChangeDateTime="11/22/2021 20:55:43">
+    <Property Name="ElementName" Value="[dbo].[user].[addressee]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[user]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="addresseeId" />
+  </Operation>
 </Operations>

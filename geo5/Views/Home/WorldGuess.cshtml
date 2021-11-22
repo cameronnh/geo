@@ -19,7 +19,6 @@
 
 @section Scripts{
     <script type="text/javascript">
-
         var latToSend
         var lngToSend
         var tempLat
@@ -48,6 +47,14 @@
                 google.maps.event.addListener(marker, 'dragend', function (event) {
                     latToSend = marker.getPosition().lat();
                     lngToSend = marker.getPosition().lng();
+                });
+
+                google.maps.event.addListener(map, 'dblclick', function(e) {
+                    var positionDoubleclick = e.latLng;
+                    marker.setPosition(positionDoubleclick);
+                    latToSend = marker.getPosition().lat();
+                    lngToSend = marker.getPosition().lng();
+                    e.stopPropagation();
                 });
 
                 //random panorama

@@ -49,6 +49,14 @@
                     lngToSend = marker.getPosition().lng();
                 });
 
+                google.maps.event.addListener(map, 'dblclick', function(e) {
+                    var positionDoubleclick = e.latLng;
+                    marker.setPosition(positionDoubleclick);
+                    latToSend = marker.getPosition().lat();
+                    lngToSend = marker.getPosition().lng();
+                    e.stopPropagation();                 
+                });
+
                 //random panorama
                 panorama = new google.maps.StreetViewPanorama(document.getElementById("street-view"), {// accepted
                     position: { lat: tempLat, lng: tempLng},

@@ -55,6 +55,13 @@
                 lngToSend = marker.getPosition().lng();
             });
 
+            google.maps.event.addListener(map, 'dblclick', function(e) {
+                var positionDoubleclick = e.latLng;
+                marker.setPosition(positionDoubleclick);
+                latToSend = marker.getPosition().lat();
+                lngToSend = marker.getPosition().lng();
+                e.stopPropagation();
+                });
 
             setTimeout(function(){
                 var panel = document.getElementById('floatingpanel');
