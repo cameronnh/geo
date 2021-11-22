@@ -1,32 +1,30 @@
 ﻿@model geo5.Models.place
+<body>
+    <div id="street-view">
+        <div class="d-flex justify-content-center">
+            <div style="margin-top:400px" class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
 
-<div id="street-view">
-    <div id="floating-panel" style="width:380px; height:110px">
-        <div style="margin-top:-10px; height:320px; width:430px" id="map"></div>
-        <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>Round @Model.currentRound/5</button>
-        @if (Model.currentGameType == "global")
-        {
+        <div id="floatingpanel" style="width:380px; height:110px; display:none;">
+            <div style="margin-top:-10px; height:320px; width:430px" id="map"></div>
+            <button id="guessButton" style="margin-top:5px; margin-left:-5px" class="btn btn-light"> Submit </button>
+            <button id="startingPosButton" style="margin-top:5px; margin-left:10px" class="btn btn-light"><i class="fas fa-flag"></i></button>
             <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>World</button>
-        }
-        @if (Model.currentGameType == "us")
-        {
-            <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>US</button>
-        }
-        @if (Model.currentGameType == "famous")
-        {
-            <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>Famous</button>
-        }
-        <button id="guessButton" style="margin-top:5px; margin-left:-270px" class="btn btn-light"> Submit </button>
+            <button style="margin-top:5px; margin-left:10px" type="button" class="btn btn-secondary" disabled>Round @Model.currentRound/5</button>
+        </div>
     </div>
-</div>
+</body>
 
 @section Scripts{
-    <script type="text/javascript">        
+    <script type="text/javascript">
+
         var latToSend
         var lngToSend
         var tempLat
         var tempLng
-        var temp
+        var panorama
 
         function initialize() {
             var location = { lat: 42.995640, lng: -71.454788 };
@@ -53,14 +51,17 @@
                 });
 
                 //random panorama
-                var panorama = new google.maps.StreetViewPanorama(document.getElementById("street-view"), {// accepted
+                panorama = new google.maps.StreetViewPanorama(document.getElementById("street-view"), {// accepted
                     position: { lat: tempLat, lng: tempLng},
                     pov: { heading: 165, pitch: 0 },
                     zoom: 1,
-                    showRoadLabels: false
+                    fullscreenControl: false,
+                    showRoadLabels: false,
+                    linksControl: false,
+                    addressControl: false
                 });
             }
-            
+
             //https://stackoverflow.com/questions/44476036/generate-random-google-maps-street-view-coordinates-in-javascript
             //generating locatation using street view service
             function TryRandomLocation(callback) {
@@ -78,7 +79,7 @@
                 //    tempLat = (Math.random() * (27.3717 - 31.751) + 24.751) * (-1); //bounds of africa
                 //    tempLng = (Math.random() * (14.301 - 51.901) + 66.901) * (-1);
                 //}
-                
+
                 var svs = new google.maps.StreetViewService();
                 svs.getPanorama({
                     location: new google.maps.LatLng(tempLat, tempLng),
@@ -88,10 +89,11 @@
 
             function HandleCallback(data, status) {
                 if (status == 'OK') {
-                    LoadMaps()              
-                } else {   
-                    console.log("cb")
-                    TryRandomLocation(HandleCallback); // callback
+                    var panel = document.getElementById('floatingpanel');
+                    panel.style.display = 'block'; //shows maps and buttons
+                    LoadMaps()
+                } else {
+                    TryRandomLocation(HandleCallback); //callback
                 }
             }
             TryRandomLocation(HandleCallback);
@@ -104,7 +106,11 @@
             });
         });
 
-        
+        $(function () {
+            $("#startingPosButton").click(function () {
+                panorama.setPosition({ lat: tempLat, lng: tempLng });
+            });
+        });
 
     </script>
 }
