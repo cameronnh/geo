@@ -7,8 +7,14 @@
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
             <li class="breadcrumb-item active">Tables</li>
         </ol>*@
-        
-        <div class="card mb-4">
+
+        <div class="btn-group">
+            <a type="button" href="@Url.Action("AddFriends", "Home")" class="btn btn-lg btn-outline-primary">Add Friends</a>
+            <a type="button" href="@Url.Action("ViewFriends", "Home")" class="btn btn-lg btn-outline-primary">View Friends List</a>
+            <a type="button" href="@Url.Action("ViewFriendRequests", "Home")" class="btn btn-lg btn-outline-primary">View Friend Requests</a>
+        </div>
+
+        <div style="margin-top:20px" class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-users me-1"></i>
                 Friends Leaderboard
@@ -34,19 +40,18 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                       
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@item.username</td>
-                                    <td>@item.bgGlobal</td>
-                                    <td>@item.bgWorld</td>
-                                    <td>@item.bgFamous</td>
-                                    <td>@item.numCorrect</td>
-                                    </tr>
-                            }
 
-                                          
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.username</td>
+                                <td>@item.bgGlobal</td>
+                                <td>@item.bgWorld</td>
+                                <td>@item.bgFamous</td>
+                                <td>@item.numCorrect</td>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
             </div>

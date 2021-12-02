@@ -27,7 +27,7 @@ namespace geo5.Controllers
 
         public ActionResult FriendsLeaderboard()
         {
-            List<DataLibrary.Models.user> temp = GetUsersStats();
+            List<DataLibrary.Models.user> temp = GetUsersFriendsStats(currentUser.userId);
             List<user> userList = new List<user>();
             userList = temp.ConvertAll(new Converter<DataLibrary.Models.user, user>(data.GetUserData));
 
@@ -39,7 +39,17 @@ namespace geo5.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult AddFriends()
+        {
+            return View();
+        }
+
+        public ActionResult ViewFriends()//NOT ADDED
+        {
+            return View();
+        }
+
+        public ActionResult ViewFriendRequests()//NOT ADDED
         {
             return View();
         }
@@ -318,7 +328,7 @@ namespace geo5.Controllers
                 {
                     CreateUser(model.username, model.password, model.email);
                     //currentUser = user;//sets login
-                    return RedirectToAction("Index");
+                    return RedirectToAction("World");
                 }
                 catch
                 {

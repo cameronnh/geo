@@ -86,6 +86,20 @@ namespace DataLibrary.Logic
             return temp;
         }
 
+        public static List<user> GetUsersFriendsStats(int userId)
+        {
+            string sql = @"SELECT addresseeId FROM dbo.[friendship] WHERE requesterId = '" + userId + "';";
+            List<int> temp = SqlDataAccess.LoadData<int>(sql);
+            List<user> friendsList = new List<user>();
+            foreach (int i in temp)
+            {
+                sql = @"SELECT username, bgGlobal, bgWorld, bgFamous, numCorrect FROM dbo.[user] WHERE userID = '" + i + "';";
+                List<user> tempFriend = SqlDataAccess.LoadData<user>(sql);
+                friendsList.Add(tempFriend[0]);
+            }
+            return friendsList;
+        }
+
         public static int UpdateEmail(int userID, string email)
         {
             user data = new user
@@ -110,6 +124,6 @@ namespace DataLibrary.Logic
             string sql = @"UPDATE dbo.[user] SET password = '" + password + "' WHERE userID = '" + userID + "';";
 
             return SqlDataAccess.SaveData(sql, data);
-        }
+        }      
     }
 }

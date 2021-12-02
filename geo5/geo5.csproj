@@ -183,8 +183,8 @@
     <Content Include="Views\Home\US.cshtml" />
     <Content Include="Views\Home\Famous.cshtml" />
     <Content Include="Views\Home\FriendsLeaderboard.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Settings.cshtml" />
+    <Content Include="Views\Home\AddFriends.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">

@@ -30,6 +30,9 @@ C:\Users\Cameron\Desktop\geo\geo\GeoBD\obj\Debug\GeoBD.pdb
 C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\bin\Debug\GeoDB.dacpac
 C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\bin\Debug\GeoBD.dll
 C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\bin\Debug\GeoBD.pdb
-C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\GeoDB.sqlprojAssemblyReference.cache
 C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\GeoBD.dll
 C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\GeoBD.pdb
+C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\Model.xml
+C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\refactor.xml
+C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\postdeploy.sql
+C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\predeploy.sql
