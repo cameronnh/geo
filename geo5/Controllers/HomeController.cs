@@ -41,7 +41,10 @@ namespace geo5.Controllers
 
         public ActionResult AddFriends()
         {
-            return View();
+            List<DataLibrary.Models.user> temp = GetUsersStats();
+            List<user> userList = new List<user>();
+            userList = temp.ConvertAll(new Converter<DataLibrary.Models.user, user>(data.GetUserData));
+            return View(userList);
         }
 
         public ActionResult ViewFriends()//NOT ADDED

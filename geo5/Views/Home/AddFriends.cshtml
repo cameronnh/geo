@@ -1,6 +1,4 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model List<geo5.Models.user>
 
 <div class="container mt-4">
     <div class="row d-flex justify-content-center">
@@ -13,38 +11,26 @@
                         <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
-                <div class="row mt-4 g-1 px-4 mb-5">
+                <div class="row mt-5 g-1 px-4 mb-5">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="people-nearby">
+                        @foreach (var item in Model)
+                        {
+                            <div class="row">
+                                <div class="col-md-16 justify-content-center">
 
-                                    <div class="nearby-user">
-                                        <div class="row">
-                                            <div class="col-md-7 col-sm-7">
-                                                <h5><a href="#" class="profile-link">User1</a></h5>
-                                                <p>User</p>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <button class="btn btn-primary pull-right">Add Friend</button>
-                                            </div>
+                                    <div style="margin-left:70px" class="row">
+                                        <div style="margin-left:20px" class="col-md-7 col-sm-7">
+                                            <h5 class="text">@item.username</h5>
+                                            <p>User</p>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <button class="btn btn-primary pull-right">Add Friend</button>
                                         </div>
                                     </div>
-                                    <div class="nearby-user">
-                                        <div class="row">                                           
-                                            <div class="col-md-7 col-sm-7">
-                                                <h5><a href="#" class="profile-link">User1</a></h5>
-                                                <p>User</p>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <button class="btn btn-primary pull-right">Add Friend</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                                                       
+
                                 </div>
                             </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
