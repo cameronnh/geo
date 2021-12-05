@@ -47,12 +47,21 @@ namespace geo5.Controllers
             return View(userList);
         }
 
-        public ActionResult ViewFriends()//NOT ADDED
+        public ActionResult ViewFriends()
+        {
+            List<DataLibrary.Models.user> temp = GetUsersFriendsStats(currentUser.userId);
+            List<user> userList = new List<user>();
+            userList = temp.ConvertAll(new Converter<DataLibrary.Models.user, user>(data.GetUserData));
+
+            return View(userList);
+        }
+
+        public ActionResult AddFriend(int userID)
         {
             return View();
         }
 
-        public ActionResult ViewFriendRequests()//NOT ADDED
+        public ActionResult RemoveFriend(int userID)
         {
             return View();
         }
@@ -328,10 +337,27 @@ namespace geo5.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
-                    CreateUser(model.username, model.password, model.email);
-                    //currentUser = user;//sets login
-                    return RedirectToAction("World");
+                { 
+                    encrypt dataEnc = new encrypt();//encryption                   
+
+                    CreateUser(model.username, dataEnc.Encode(model.password), model.email);
+                    List<DataLibrary.Models.user> temp = LoadUser(model.username, dataEnc.Encode(model.password));
+
+                    if (temp.Count > 0)
+                    {
+                        List<user> userList = new List<user>();
+
+                        userList = temp.ConvertAll(new Converter<DataLibrary.Models.user, user>(data.GetUserData));
+                        user user = userList[0];
+
+                        Session["Id"] = user.userId;
+                        currentUser = user;
+                        return RedirectToAction("World", "Home");
+                    }
+                    else
+                    {
+                        return View();
+                    }
                 }
                 catch
                 {
@@ -352,7 +378,8 @@ namespace geo5.Controllers
         [HttpPost]
         public ActionResult Login(user model)
         {
-            List<DataLibrary.Models.user> temp = LoadUser(model.username, model.password);
+            encrypt dataEnc = new encrypt();//encryption            
+            List<DataLibrary.Models.user> temp = LoadUser(model.username, dataEnc.Encode(model.password));
 
             if (temp.Count > 0)
             {

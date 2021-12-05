@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="Logic\UserProcessor.cs" />
+    <Compile Include="Models\friendship.cs" />
     <Compile Include="Models\user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

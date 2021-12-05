@@ -8,11 +8,20 @@
             <li class="breadcrumb-item active">Tables</li>
         </ol>*@
 
-        <div class="btn-group">
-            <a type="button" href="@Url.Action("AddFriends", "Home")" class="btn btn-lg btn-outline-primary">Add Friends</a>
-            <a type="button" href="@Url.Action("ViewFriends", "Home")" class="btn btn-lg btn-outline-primary">View Friends List</a>
-            <a type="button" href="@Url.Action("ViewFriendRequests", "Home")" class="btn btn-lg btn-outline-primary">View Friend Requests</a>
-        </div>
+        @if (Session["Id"] == null)
+        {
+            <div class="btn-group">
+                <h5> Login or sign up to add friends.</h5>
+            </div>
+        }
+        else
+        {
+            <div class="btn-group">
+                <a type="button" href="@Url.Action("AddFriends", "Home")" class="btn btn-lg btn-outline-primary">Add Friends</a>
+                <a type="button" href="@Url.Action("ViewFriends", "Home")" class="btn btn-lg btn-outline-primary">View Friends List</a>
+            </div>
+        }
+            
 
         <div style="margin-top:20px" class="card mb-4">
             <div class="card-header">

@@ -125,5 +125,29 @@ namespace DataLibrary.Logic
 
             return SqlDataAccess.SaveData(sql, data);
         }      
+
+        public static int UpdateFriends(int userID, int friendID)
+        {
+            friendship data = new friendship
+            {
+                userID = userID,
+                friendID = friendID
+            };
+            string sql = @"INSERT into dbo.[friendship] (requesterId, addresseeId) values(@userID, @friendID)";
+
+            return SqlDataAccess.SaveData(sql, data);
+        }
+
+        public static int DeleteFriends(int userID, int friendID)
+        {
+            friendship data = new friendship
+            {
+                userID = userID,
+                friendID = friendID
+            };
+            string sql = @"DELETE FROM dbo.[friendship] WHERE requesterId = ' " + userID + "' AND addresseeId = ' " + friendID +"';";
+
+            return SqlDataAccess.SaveData(sql, data);
+        }
     }
 }

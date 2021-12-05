@@ -1,0 +1,34 @@
+﻿@model List<geo5.Models.user>
+
+<div class="container mt-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-9">
+            <div class="card p-4 mt-3">
+                <h3 class="heading mt-5 text-center">Add Friends</h3>
+               
+                <div class="row mt-5 g-1 px-4 mb-5">
+                    <div class="container">
+                        @foreach (var item in Model)
+                        {
+                            <div class="row">
+                                <div class="col-md-16 justify-content-center">
+
+                                    <div style="margin-left:70px" class="row">
+                                        <div style="margin-left:20px" class="col-md-7 col-sm-7">
+                                            <h5 class="text">@item.username</h5>
+                                            <p>User</p>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <button class="btn btn-primary pull-right" onclick="location.href='@Url.Action("RemoveFriend", "Home", item.userId)'">Remove Friend</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        }                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
