@@ -36,3 +36,4 @@ C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\Model.xml
 C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\refactor.xml
 C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\postdeploy.sql
 C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\predeploy.sql
+C:\Users\camer\Documents\important\GeoCap\geo\GeoBD\obj\Debug\GeoDB.sqlprojAssemblyReference.cache
